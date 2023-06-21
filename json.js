@@ -7,6 +7,7 @@ const apiKey = core.getInput('openai-token');
 const mainLocale =  core.getInput('main-locale');
 const model = core.getInput('model');
 const dir = core.toPlatformPath(core.getInput('locales-path'));
+const localeCodes = require('locale-codes')
 
 const dropPluralRegex = /(_one|_two|_few|_many|_other|_zero)$/;
 
@@ -55,7 +56,7 @@ function deepDiff(a, b) {
 
 async function getTranslationOfStringFromBackend(string, locale, num_of_retry = 0) {
     try {
-        const prompt = `Translate the following string to ${locale}:\n\n${string}\n\n`;
+        const prompt = `Translate the following string to ${localeCodes.getByTag(locale).name}:\n\n${string}\n\n`;
         const messages = [
             {"role": "user", "content": prompt},
         ];
