@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Localize strings
-        env:
-          OPENAI_TOKEN: ${{ secrets.API_TOKEN }}
-          LOCALES_PATH: ../locales
-          MODEL: gpt-4
-          MAIN_LOCALE: en
-        uses: voloshinskii/localize-ai@v1.2.2
+        uses: voloshinskii/localize-ai@v1.2.3
+        with: 
+          model: gpt-4
+          openai-token: ${{ secrets.OPENAI_TOKEN }}
+          locales-path: ./locales
+          main-locale: en
 
       - name: commit and push all changed files
         env:

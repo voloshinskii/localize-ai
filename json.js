@@ -1,11 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const { Configuration, OpenAIApi } = require("openai");
+const core = require('@actions/core');
 
-const apiKey = process.env.OPENAI_TOKEN;
-const mainLocale = process.env.MAIN_LOCALE || 'en';
-const model = process.env.MODEL || 'gpt-4';
-const dir = path.join(path.dirname(require.main.filename), process.env.LOCALES_PATH || './locales');
+const apiKey = core.getInput('openai-token');
+const mainLocale =  core.getInput('main-locale');
+const model = core.getInput('model');
+const dir = path.join(path.dirname(require.main.filename), core.getInput('locales-path'));
 
 const dropPluralRegex = /(_one|_two|_few|_many|_other|_zero)$/;
 

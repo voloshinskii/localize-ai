@@ -3,15 +3,20 @@ description: "Localize your project with GPT"
 branding:
   icon: aperture
   color: yellow
+inputs:
+  openai-token:
+    description: 'Openai API token'
+    required: true
+  locales-path:
+    description: 'Path to locales folder'
+    default: './locales'
+  main-locale:
+    description: 'Main locale'
+    default: 'en'
+  model:
+    description: 'GPT model'
+    default: 'gpt-4'
 
 runs:
-    using: composite
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2.5.2
-      - name: Install deps
-        shell: bash
-        run: yarn
-      - name: Localize strings
-        shell: bash
-        run: node json.js
+    using: node16
+    main: json.js
