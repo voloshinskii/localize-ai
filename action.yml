@@ -1,0 +1,12 @@
+name: Localize AI
+description: "Localize your project with GPT"
+branding:
+  icon: aperture
+  color: yellow
+
+runs:
+    using: composite
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2.5.2
+      - run: yarn

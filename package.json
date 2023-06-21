@@ -1,0 +1,23 @@
+{
+  "name": "localize-ai",
+  "version": "1.0.0",
+  "description": "localize your services without pain!",
+  "main": "json.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voloshinskii/localize-ai.git"
+  },
+  "author": "Max Voloshinskii",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/voloshinskii/localize-ai/issues"
+  },
+  "homepage": "https://github.com/voloshinskii/localize-ai#readme",
+  "dependencies": {
+    "@types/node": "^20.3.1",
+    "openai": "^3.3.0"
+  }
+}
