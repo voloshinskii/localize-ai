@@ -18,7 +18,7 @@ const openai = new OpenAIApi(configuration);
 const locales = {};
 fs.readdirSync(dir).forEach(file => {
     const locale = file.split('.')[0];
-    locales[locale] = require(path.join(dir, file));
+    locales[locale] = JSON.stringify(fs.readFileSync(path.join(dir, file)));
 });
 
 function asyncForEach(array, cb) {
