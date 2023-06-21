@@ -1,5 +1,6 @@
 # localize-ai
-Localize your services without pain 🕺
+Localize your services without pain 🕺 
+GPT-4 + OpenAI API under the hood 🤖
 
 [Example repository](https://github.com/voloshinskii/localize-ai-example)
 
