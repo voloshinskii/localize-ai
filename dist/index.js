@@ -9915,7 +9915,7 @@ const openai = new OpenAIApi(configuration);
 const locales = {};
 fs.readdirSync(dir).forEach(file => {
     const locale = file.split('.')[0];
-    locales[locale] = JSON.stringify(fs.readFileSync(path.join(dir, file)).toJSON());
+    locales[locale] = JSON.parse(fs.readFileSync(path.join(dir, file), { encoding: 'utf-8' }));
 });
 
 function asyncForEach(array, cb) {
