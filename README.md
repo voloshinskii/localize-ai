@@ -5,9 +5,18 @@ GPT-4 + OpenAI API under the hood 🤖
 
 [Example repository](https://github.com/voloshinskii/localize-ai-example)
 
+Localize AI is a powerful GitHub Action that automates the localization process of your apps using the state-of-the-art GPT-4 language model. It seamlessly translates your app's content into multiple languages with a simple configuration setup, saving you time and resources.
+
+Main features:
+
+🌍 Multilingual Support: Translate your app's content into various languages to reach a broader user base.
+🤖 GPT-4 AI Integration: Leverage OpenAI's powerful GPT-4 language model for accurate and natural translations.
+⚡ Real-time Localization: Automatically localize new content as you update your app, ensuring a consistent user experience.
+📦 Seamless Integration: Integrate Action Localize AI with your existing CI/CD pipelines and workflows with ease.
+
 ### Usage
 
-Create workflow file in your repository, for example `workflow.yaml`:
+Create a workflow file in your repository, for example `workflow.yaml`:
 
 ```yaml
 name: Localize strings
