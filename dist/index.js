@@ -9907,6 +9907,10 @@ const dir = core.toPlatformPath(core.getInput('locales-path'));
 
 const dropPluralRegex = /(_one|_two|_few|_many|_other|_zero)$/;
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const configuration = new Configuration({
     apiKey,
 });
@@ -9946,19 +9950,28 @@ function deepDiff(a, b) {
     return diff;
 }
 
-async function getTranslationOfStringFromBackend(string, locale) {
-    const prompt = `Translate the following string to ${locale}:\n\n${string}\n\n`;
-    const messages = [
-        { "role": "user", "content": prompt },
-    ];
+async function getTranslationOfStringFromBackend(string, locale, num_of_retry = 0) {
+    try {
+        const prompt = `Translate the following string to ${locale}:\n\n${string}\n\n`;
+        const messages = [
+            {"role": "user", "content": prompt},
+        ];
 
-    const completion = await openai.createChatCompletion({
-        model,
-        messages,
-        max_tokens: 2000,
-    });
+        const completion = await openai.createChatCompletion({
+            model,
+            messages,
+            max_tokens: 500,
+        });
 
-    return completion.data.choices[0]?.message.content;
+        return completion.data.choices[0]?.message.content;
+    } catch (e) {
+        if (num_of_retry >= 5 || e.response?.status === 429) {
+            throw e;
+        }
+        console.log('Too many requests, waiting 1 minute...');
+        await sleep(60000);
+        return await getTranslationOfStringFromBackend(string, locale, num_of_retry + 1);
+    }
 }
 
 function deepCopy(obj) {

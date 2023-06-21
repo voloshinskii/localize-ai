@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Localize strings
-        uses: voloshinskii/localize-ai@v1
+        uses: voloshinskii/localize-ai@v1.0.1
         with: 
           model: gpt-4
           openai-token: ${{ secrets.OPENAI_TOKEN }}
@@ -40,3 +40,4 @@ jobs:
 ### Known limitations
     - Only supports .json
     - Pluralization is not supported now
+    - Huge changes in the file can lead to 429 error from OpenAI API. GPT-4 has 200 RPM limits right now. I should batch prompts in future.
