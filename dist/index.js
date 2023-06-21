@@ -10267,7 +10267,8 @@ const apiKey = core.getInput('openai-token');
 const mainLocale =  core.getInput('main-locale');
 const model = core.getInput('model');
 const dir = core.toPlatformPath(core.getInput('locales-path'));
-const localeCodes = __nccwpck_require__(3188)
+const localeCodes = __nccwpck_require__(3188);
+const verbose = core.getInput('verbose') === 'true';
 
 const dropPluralRegex = /(_one|_two|_few|_many|_other|_zero)$/;
 
@@ -10329,8 +10330,11 @@ async function getTranslationOfStringFromBackend(string, locale, num_of_retry = 
 
         return completion.data.choices[0]?.message.content;
     } catch (e) {
-        if (num_of_retry >= 5 || e.response?.status === 429) {
+        if (num_of_retry >= 5 || e.response?.status !== 429) {
             throw e;
+        }
+        if (verbose) {
+            console.log(e);
         }
         console.log('Too many requests, waiting 1 minute...');
         await sleep(60000);

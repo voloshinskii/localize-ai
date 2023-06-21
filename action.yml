@@ -16,6 +16,9 @@ inputs:
   model:
     description: 'GPT model'
     default: 'gpt-4'
+  verbose:
+    description: 'Verbose mode'
+    default: 'false'
 
 runs:
     using: node16
