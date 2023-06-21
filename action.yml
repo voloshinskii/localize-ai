@@ -9,4 +9,6 @@ runs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2.5.2
-      - run: yarn
+      - name: Install deps
+        shell: bash
+        run: yarn

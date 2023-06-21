@@ -6,7 +6,6 @@ Localize your services without pain 🕺
 Create workflow file in your repository, for example `workflow.yaml`:
 
 ```yaml
-on: [push]
 name: Localize strings
 on: [push]
 jobs:
@@ -19,7 +18,7 @@ jobs:
           LOCALES_PATH: ../locales
           MODEL: gpt-4
           MAIN_LOCALE: en
-        uses: voloshinskii/localize-ai@v1
+        uses: voloshinskii/localize-ai@v1.2.1
 
       - name: commit and push all changed files
         env:
