@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Localize strings
-        uses: voloshinskii/localize-ai@v1.2.3
+        uses: voloshinskii/localize-ai@v1.2.4
         with: 
           model: gpt-4
           openai-token: ${{ secrets.OPENAI_TOKEN }}
