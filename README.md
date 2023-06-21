@@ -7,13 +7,17 @@ Create workflow file in your repository, for example `workflow.yaml`:
 
 ```yaml
 name: Localize strings
-on: [push]
+on:
+  push:
+    paths:
+      - locales/**
 jobs:
   localize:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Localize strings
-        uses: voloshinskii/localize-ai@v1.2.5
+        uses: voloshinskii/localize-ai@v1.2.6
         with: 
           model: gpt-4
           openai-token: ${{ secrets.OPENAI_TOKEN }}

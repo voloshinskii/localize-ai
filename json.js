@@ -6,7 +6,7 @@ const core = require('@actions/core');
 const apiKey = core.getInput('openai-token');
 const mainLocale =  core.getInput('main-locale');
 const model = core.getInput('model');
-const dir = path.join(path.dirname(require.main.filename), core.getInput('locales-path'));
+const dir = core.toPlatformPath(core.getInput('locales-path'));
 
 const dropPluralRegex = /(_one|_two|_few|_many|_other|_zero)$/;
 
