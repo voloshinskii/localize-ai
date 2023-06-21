@@ -12,3 +12,6 @@ runs:
       - name: Install deps
         shell: bash
         run: yarn
+      - name: Localize strings
+        shell: bash
+        run: node json.js

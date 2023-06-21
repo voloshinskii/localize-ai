@@ -18,7 +18,7 @@ jobs:
           LOCALES_PATH: ../locales
           MODEL: gpt-4
           MAIN_LOCALE: en
-        uses: voloshinskii/localize-ai@v1.2.1
+        uses: voloshinskii/localize-ai@v1.2.2
 
       - name: commit and push all changed files
         env:
