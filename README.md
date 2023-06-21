@@ -1,6 +1,8 @@
 # localize-ai
 Localize your services without pain 🕺
 
+[Example repository](https://github.com/voloshinskii/localize-ai-example)
+
 ### Usage
 
 Create workflow file in your repository, for example `workflow.yaml`:
