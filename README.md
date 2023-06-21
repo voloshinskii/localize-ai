@@ -11,6 +11,8 @@ Main features:
 
 [Example repository](https://github.com/voloshinskii/localize-ai-example)
 
+[Example React project](https://github.com/voloshinskii/localize-ai-react-example)
+
 ### Usage
 
 Create a workflow file in your repository, for example `workflow.yaml`:
