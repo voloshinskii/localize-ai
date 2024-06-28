@@ -1,6 +1,6 @@
 {
   "name": "localize-ai",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "localize your services without pain!",
   "main": "json.js",
   "scripts": {

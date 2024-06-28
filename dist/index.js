@@ -10317,7 +10317,7 @@ function deepDiff(a, b) {
 
 async function getTranslationOfStringFromBackend(string, locale, num_of_retry = 0) {
     try {
-        const prompt = `Translate the following string to ${localeCodes.getByTag(locale).name}:\n\n${string}\n\n`;
+        const prompt = `Your task is to localize app. Your response must contain ONLY translated text without additional notes. Translate the following string to ${localeCodes.getByTag(locale).name}:\n\n${string}\n\n`;
         const messages = [
             {"role": "user", "content": prompt},
         ];
